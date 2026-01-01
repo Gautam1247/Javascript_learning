@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      Start changing background colors as soon as you click the start button
+    </h1>
+    <h2>Press Stop to Stop</h2>
+    <h3>
+      <button id="button1">Start</button>
+      <button id="button2">Stop</button>
+    </h3>
+  </body>
+  <script>
+    const hex = "123456789ABCDEF";
+    let interval;
+    function func1() {
+      let str = "#";
+      for (let i = 0; i < 6; i++) {
+        str += hex[Math.floor(Math.random() * 16)];
+      }
+      const body = document.querySelector("body");
+      body.style.backgroundColor = str;
+    }
+    const button1 = document.querySelector("#button1");
+    const button2 = document.querySelector("#button2");
+    button1.addEventListener("click", (e) => {
+      interval = setInterval(func1, 1000);
+    });
+    button2.addEventListener("click", (e) => {
+      clearInterval(interval);
+    });
+  </script>
+</html>
