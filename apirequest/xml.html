@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi provident
-    corrupti, laboriosam voluptatum aliquam praesentium pariatur odit
-    asperiores, magnam nobis neque esse, beatae saepe. Eveniet maiores ipsam
-    modi aut iste?
-  </body>
-  <script>
-    str=''
-  </script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1></h1>
+  <h2><button>Followers </button> <span></span></h2>
+</body>
+<script>
+  str = 'https://api.github.com/users/hiteshchoudhary'
+  const request = new XMLHttpRequest()
+  request.open("GET", str)
+  let data;
+  let img;
+  let Followers;
+  let h2;
+  request.onreadystatechange = function () {
+    console.log(request.readyState);
+    if (request.readyState == 4) {
+      data = JSON.parse(this.response)
+      img = data.avatar_url
+      const h1 = document.querySelector('h1')
+      h1.innerHTML = `<img src="${img}" alt="image">`
+      Followers = data.followers
+    }
+    let button = document.querySelector("button")
+    const span = document.querySelector("span")
+    button.addEventListener("click", () => {
+      span.innerHTML = `${Followers}`
+    })
+  }
+  request.send()
+</script>
+
 </html>
