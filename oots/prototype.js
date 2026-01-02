@@ -26,7 +26,7 @@ const school2={
     class:"10D"
 }
 const college2={
-    name:"gouri",
+    name:"arpan",
     classs:"11A",
 }
 Object.setPrototypeOf(college2,school2)
