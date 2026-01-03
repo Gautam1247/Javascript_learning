@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="button1">Green</button>
+    <button id="button2">Orange</button>
+  </body>
+  <script>
+    function handleclick(color) {
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+    document.getElementById("button1").onclick = handleclick("green");
+    document.getElementById("button2").onclick = handleclick("orange");
+  </script>
+</html>
