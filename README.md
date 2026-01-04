@@ -91,6 +91,3 @@ Perfect for:
 - Form events
 
 ---
-
-## 🗂 Repository Structure
-
